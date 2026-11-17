@@ -139,9 +139,11 @@ void
 read_usage (int *characteristic, char *def, FILE *fp)
 {
     int i ;
+    long int l ;
 
-    if (fread (characteristic, sizeof (int), 1, fp) != 1)
+    if (fread (&l, sizeof (long int), 1, fp) != 1)
 	error (ERRRD, fname[file]);
+    *characteristic = (int) l ;
     if (fread (&pc, sizeof (saddr), 1, fp) != 1)
 	error (ERRRD, fname[file]);
     i = 0 ;

@@ -185,7 +185,7 @@ pass2 (void)
 	fgetl (bidon, fp, fname[file]) ;
 	fgetl (size, fp, fname[file]) ;
 	code = memoire (size) ;
-	if (fread ((char *) code, (int) size, 1, fp) != 1)
+	if (size && fread ((char *) code, (int) size, 1, fp) != 1)
 	    error (ERRRD, fname[file]) ;
 
 	fseek (fp, tmodule[file].m_part3, 0) ;
